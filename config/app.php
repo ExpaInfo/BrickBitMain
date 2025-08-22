@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Brick-Hill'),
+    'name' => env('APP_NAME', 'BrickBit'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => parse_url(env('APP_URL', 'https://www.brick-hill.com'), PHP_URL_HOST),
+    'url' => parse_url(env('APP_URL', 'https://www.brickbit.com'), PHP_URL_HOST),
 
     /*
     |--------------------------------------------------------------------------
