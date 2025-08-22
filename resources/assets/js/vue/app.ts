@@ -18,7 +18,7 @@ window.BH = {
     img_pending_set: `${process.env.STORAGE_DOMAIN}${process.env.STORAGE_PENDING_SET}`,
     img_declined_set: `${process.env.STORAGE_DOMAIN}${process.env.STORAGE_DECLINED_SET}`,
 
-    api_domain: process.env.API_URL || "https://api.brick-hill.com",
+    api_domain: process.env.API_URL || "https://api.brickbit.com",
 
     main_account_id: Number(process.env.MAIN_ACCOUNT_ID || "1003"),
     stripe_public: process.env.STRIPE_PUBLIC || "",

@@ -128,7 +128,7 @@
     @if(app()->environment(['prod', 'production']))
     <script type="text/javascript" async="true">
         !function(){var e=document.createElement("script"),t=document.getElementsByTagName("script")[0],
-        a="https://cmp.quantcast.com".concat("/choice/","CH96B6ycUs-aM","/","www.brick-hill.com","/choice.js?tag_version=V2"),
+        a="https://cmp.quantcast.com".concat("/choice/","CH96B6ycUs-aM","/","www.brickbit.com","/choice.js?tag_version=V2"),
         s=0;e.async=!0,e.type="text/javascript",e.src=a,t.parentNode.insertBefore(e,t),
         !function e(){for(var t,a="__tcfapiLocator",s=[],i=window;i;){try{if(i.frames[a]){t=i;break}}catch(n){}if(i===window.top)break;
         i=i.parent}t||(!function e(){var t=i.document,s=!!i.frames[a];if(!s){if(t.body){var n=t.createElement("iframe");

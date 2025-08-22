@@ -85,13 +85,13 @@ class Helper {
 
     public static function bbcode_to_html($bbtext, $adminPower, $colorClass = ""){
         $allowedLinks = [
-            'https://www.brick-hill.com',
-            'https://brick-hill.com',
-            'https://api.brick-hill.com',
-            'https://teach.brick-hill.com',
-            'https://blog.brick-hill.com',
-            'https://wiki.brick-hill.com',
-            'https://brick-hill.trade',
+            'https://www.brickbit.com',
+            'https://brickbit.com',
+            'https://api.brickbit.com',
+            'https://teach.brickbit.com',
+            'https://blog.brickbit.com',
+            'https://wiki.brickbit.com',
+            'https://brickbit.trade',
             'https://twitter.com',
             'https://www.youtube.com',
             'https://youtu.be',

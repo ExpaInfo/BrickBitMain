@@ -151,7 +151,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', '.brick-hill.com'),
+    'domain' => env('SESSION_DOMAIN', '.brickbit.com'),
 
     /*
     |--------------------------------------------------------------------------

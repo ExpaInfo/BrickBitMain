@@ -34,7 +34,7 @@ class PageController extends Controller
 
     public function blog()
     {
-        return redirect('https://blog.brick-hill.com');
+        return redirect('https://blog.brickbit.com');
     }
 
     public function index()

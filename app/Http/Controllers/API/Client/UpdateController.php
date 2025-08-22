@@ -56,7 +56,7 @@ class UpdateController extends Controller
         $build = ClientBuild::where('tag', $request->tag)->firstOrFail();
 
         return redirect(Storage::disk('client_s3')->temporaryUrl(
-            "debug/{$build->tag}/brick-hill-{$request->os}.zip",
+            "debug/{$build->tag}/brickbit-{$request->os}.zip",
             now()->addMinutes(5)
         ));
     }

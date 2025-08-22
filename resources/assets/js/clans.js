@@ -29,7 +29,7 @@ function loadEditMembers(page = 1) {
                         </a>
                         ${
                             data.data[i].rank != 100
-                                ? `<form method="POST" action="https://www.brick-hill.com/clan/edit">
+                                ? `<form method="POST" action="https://www.brickbit.com/clan/edit">
                             <input type="hidden" name="_token" value="${$(
                                 'meta[name="csrf-token"]'
                             ).attr("content")}">
@@ -90,7 +90,7 @@ function searchRelationClans(e) {
                                     new Option(clan.title).innerHTML
                                 }</span>
                             </a>
-                            <form method="POST" action="https://www.brick-hill.com/clan/edit" class="clan-form">
+                            <form method="POST" action="https://www.brickbit.com/clan/edit" class="clan-form">
                                 <input type="hidden" name="_token" value="${$(
                                     'meta[name="csrf-token"]'
                                 ).attr("content")}">

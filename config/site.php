@@ -90,7 +90,7 @@ return [
         ]
     ],
     'main_account_id' => env('MAIN_ACCOUNT_ID', 1003),
-    'url' => env('APP_URL', 'https://www.brick-hill.com'),
+    'url' => env('APP_URL', 'https://www.brickbit.com'),
     'api_url' => env('API_URL'),
     'admin_url' => env('ADMIN_URL'),
 ];

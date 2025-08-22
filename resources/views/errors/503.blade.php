@@ -8,7 +8,7 @@
 <div style="text-align:center;padding-top:50px;">
 	<div style="font-weight:600;font-size:3rem;">BrickBit is currently under maintenance.</div>
 	<div style="font-weight:500;font-size:2rem;">Please try again soon.</div>
-	<div style="font-size:2rem;"><a href="https://discord.gg/brick-hill">Join us on Discord at discord.gg/brick-hill</a></div>
+	<div style="font-size:2rem;"><a href="https://discord.gg/brickbit">Join us on Discord at discord.gg/brickbit</a></div>
 	<form style="margin-top:20px;">
 		<input type="password" name="maint_key" placeholder="Maintenance Key">
 		<div style="padding:2.5px;"></div>
