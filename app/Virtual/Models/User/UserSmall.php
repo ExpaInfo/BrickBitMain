@@ -25,7 +25,7 @@ class UserSmall
      *      title="username",
      *      description="Username of the user",
      *      format="string",
-     *      example="Brick Hill"
+     *      example="BrickBit"
      *  )
      *
      * @var string

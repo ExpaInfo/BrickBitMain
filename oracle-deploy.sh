@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Oracle Cloud Free Tier Deployment Script for Brick Hill
+# Oracle Cloud Free Tier Deployment Script for BrickBit
 # Optimized for 1GB RAM AMD instance or 4GB+ ARM instance
 # FREE FOREVER hosting solution!
 
 set -e
 
-echo "🔥 Oracle Cloud Free Tier - Brick Hill Deployment"
+echo "🔥 Oracle Cloud Free Tier - BrickBit Deployment"
 echo "=================================================="
 echo "💰 Cost: FREE FOREVER!"
 echo "🎯 Target: <100 concurrent users"
@@ -52,13 +52,13 @@ sudo chmod +x /usr/local/bin/composer
 
 # Create application directory
 echo "📁 Setting up application directory..."
-sudo mkdir -p /var/www/brickhill
-sudo chown -R $USER:www-data /var/www/brickhill
+sudo mkdir -p /var/www/brickbit
+sudo chown -R $USER:www-data /var/www/brickbit
 
 # Copy application files
 echo "📋 Copying application files..."
-cp -r . /var/www/brickhill/
-cd /var/www/brickhill
+cp -r . /var/www/brickbit/
+cd /var/www/brickbit
 
 # Use the new improved Oracle Cloud environment configuration
 echo "⚙️ Creating optimized environment configuration..."
@@ -112,20 +112,20 @@ php artisan view:cache
 
 # Set proper permissions
 echo "🔒 Setting up permissions..."
-sudo chown -R www-data:www-data /var/www/brickhill
-sudo chmod -R 755 /var/www/brickhill
-sudo chmod -R 775 /var/www/brickhill/storage
-sudo chmod -R 775 /var/www/brickhill/bootstrap/cache
-sudo chmod -R 775 /var/www/brickhill/database
+sudo chown -R www-data:www-data /var/www/brickbit
+sudo chmod -R 755 /var/www/brickbit
+sudo chmod -R 775 /var/www/brickbit/storage
+sudo chmod -R 775 /var/www/brickbit/bootstrap/cache
+sudo chmod -R 775 /var/www/brickbit/database
 
 # Configure Nginx for Oracle Cloud
 echo "🌐 Configuring Nginx..."
-sudo tee /etc/nginx/sites-available/brickhill << 'EOF'
+sudo tee /etc/nginx/sites-available/brickbit << 'EOF'
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
     
-    root /var/www/brickhill/public;
+    root /var/www/brickbit/public;
     index index.php index.html index.htm;
 
     server_name _;
@@ -187,12 +187,12 @@ EOF
 
 # Remove default Nginx site and enable ours
 sudo rm -f /etc/nginx/sites-enabled/default
-sudo ln -sf /etc/nginx/sites-available/brickhill /etc/nginx/sites-enabled/
+sudo ln -sf /etc/nginx/sites-available/brickbit /etc/nginx/sites-enabled/
 
 # Configure PHP-FPM for low memory usage
 echo "🔧 Optimizing PHP-FPM for Oracle Cloud..."
-sudo tee /etc/php/8.1/fpm/pool.d/brickhill.conf << EOF
-[brickhill]
+sudo tee /etc/php/8.1/fpm/pool.d/brickbit.conf << EOF
+[brickbit]
 user = www-data
 group = www-data
 listen = /var/run/php/php8.1-fpm.sock
@@ -234,13 +234,13 @@ echo "y" | sudo ufw enable
 
 # Create maintenance script
 echo "📝 Creating maintenance script..."
-cat > /var/www/brickhill/oracle-maintenance.sh << 'EOF'
+cat > /var/www/brickbit/oracle-maintenance.sh << 'EOF'
 #!/bin/bash
 # Oracle Cloud maintenance script
 
 echo "🔧 Running Oracle Cloud maintenance..."
 
-cd /var/www/brickhill
+cd /var/www/brickbit
 
 # Clear caches
 php artisan cache:clear
@@ -265,11 +265,11 @@ df -h
 echo "✅ Maintenance complete!"
 EOF
 
-chmod +x /var/www/brickhill/oracle-maintenance.sh
+chmod +x /var/www/brickbit/oracle-maintenance.sh
 
 # Set up cron job for maintenance
 echo "⏰ Setting up automated maintenance..."
-(crontab -l 2>/dev/null; echo "0 2 * * 0 /var/www/brickhill/oracle-maintenance.sh >> /var/log/brickhill-maintenance.log 2>&1") | crontab -
+(crontab -l 2>/dev/null; echo "0 2 * * 0 /var/www/brickbit/oracle-maintenance.sh >> /var/log/brickbit-maintenance.log 2>&1") | crontab -
 
 # Get external IP for final message
 EXTERNAL_IP=$(curl -s ifconfig.me)
@@ -290,8 +290,8 @@ echo "3. Optional: Set up Cloudflare for SSL and CDN (free)"
 echo "4. Monitor with: sudo systemctl status nginx php8.1-fpm"
 echo ""
 echo "🔧 MAINTENANCE:"
-echo "- Run weekly: /var/www/brickhill/oracle-maintenance.sh"
-echo "- Check logs: tail -f /var/www/brickhill/storage/logs/laravel.log"
+echo "- Run weekly: /var/www/brickbit/oracle-maintenance.sh"
+echo "- Check logs: tail -f /var/www/brickbit/storage/logs/laravel.log"
 echo "- Update system: sudo apt update && sudo apt upgrade"
 echo ""
-echo "✅ Your Brick Hill site is now running FREE on Oracle Cloud!"
+echo "✅ Your BrickBit site is now running FREE on Oracle Cloud!"

@@ -37,7 +37,7 @@ class AwardType
      *      title="description",
      *      description="Description of the award",
      *      format="string",
-     *      example="Users with this award work for Brick Hill."
+     *      example="Users with this award work for BrickBit."
      *  )
      *
      * @var string

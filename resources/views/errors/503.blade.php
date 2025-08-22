@@ -6,7 +6,7 @@
 
 @section('content')
 <div style="text-align:center;padding-top:50px;">
-	<div style="font-weight:600;font-size:3rem;">Brick Hill is currently under maintenance.</div>
+	<div style="font-weight:600;font-size:3rem;">BrickBit is currently under maintenance.</div>
 	<div style="font-weight:500;font-size:2rem;">Please try again soon.</div>
 	<div style="font-size:2rem;"><a href="https://discord.gg/brick-hill">Join us on Discord at discord.gg/brick-hill</a></div>
 	<form style="margin-top:20px;">

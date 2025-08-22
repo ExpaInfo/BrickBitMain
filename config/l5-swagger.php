@@ -5,7 +5,7 @@ return [
     'documentations' => [
         'default' => [
             'api' => [
-                'title' => 'Brick Hill Docs',
+                'title' => 'BrickBit Docs',
             ],
 
             'routes' => [

@@ -23,14 +23,14 @@ provider "vault" {
     method = "jwt"
 
     parameters = {
-      "role" = "brickhill-production-terraform"
+      "role" = "brickbit-production-terraform"
       "jwt"  = var.CI_JWT
     }
   }
 }
 
 data "vault_generic_secret" "cf_api_token" {
-  path = "brickhill/prod/terraform/cloudflare"
+  path = "brickbit/prod/terraform/cloudflare"
 }
 
 provider "cloudflare" {
@@ -48,22 +48,22 @@ module "ecr" {
 }
 
 module "vpc" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//vpc?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//vpc?ref=0.0.12"
 }
 
 module "sqs" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//sqs?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//sqs?ref=0.0.12"
 }
 
 module "acm" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//acm?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//acm?ref=0.0.12"
 
-  brickhill_domain = "brick-hill.com"
+  brickbit_domain = "brick-hill.com"
   brkcdn_domain    = "brkcdn.com"
 }
 
 module "s3" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//s3?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//s3?ref=0.0.12"
 
   env_name              = var.env_name
   brkcdn_name           = "brkcdn.com"
@@ -73,7 +73,7 @@ module "s3" {
 }
 
 module "cloudfront" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//cloudfront?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//cloudfront?ref=0.0.12"
 
   acm_domain = "*.brkcdn.com"
 
@@ -97,7 +97,7 @@ module "cloudfront" {
 }
 
 module "elasticache" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//elasticache?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//elasticache?ref=0.0.12"
 
   env_name               = var.env_name
   subnet_ids             = module.vpc.public_subnet_ids
@@ -107,12 +107,12 @@ module "elasticache" {
 }
 
 module "database" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//database?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//database?ref=0.0.12"
 
   env_name                   = var.env_name
   subnet_ids                 = module.vpc.public_subnet_ids
   security_group_id          = module.vpc.db_security_group_id
-  database_name              = "brickhill"
+  database_name              = "brickbit"
   cluster_instance_type      = "db.r6g.large"
   cluster_instance_count     = 1
   cluster_availability_zones = ["us-east-1d", "us-east-1a", "us-east-1c"]
@@ -120,7 +120,7 @@ module "database" {
 }
 
 module "elb" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//elb?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//elb?ref=0.0.12"
 
   env_name   = var.env_name
   subnet_ids = module.vpc.public_subnet_ids
@@ -133,7 +133,7 @@ module "elb" {
 }
 
 module "opensearch" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//opensearch?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//opensearch?ref=0.0.12"
 
   env_name = var.env_name
 
@@ -146,13 +146,13 @@ module "opensearch" {
 }
 
 module "iam" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//iam?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//iam?ref=0.0.12"
 
   env_name = var.env_name
 }
 
 module "ecs" {
-  source = "git::https://gitlab.com/brickhill/infrastructure/terraform/modules.git//ecs?ref=0.0.12"
+  source = "git::https://gitlab.com/brickbit/infrastructure/terraform/modules.git//ecs?ref=0.0.12"
 
   env_name           = var.env_name
   vpc_id             = module.vpc.vpc_id

@@ -31,7 +31,7 @@ class PasswordReset extends Mailable implements ShouldQueue
 	public function build()
 	{
 		return $this
-			->subject('Brick Hill - Password Reset')
+			->subject('BrickBit - Password Reset')
 			->view('mail.passreset')->with([
 				'key' => $this->key
 			]);

@@ -56,7 +56,7 @@ class CreateController extends Controller
         Message::create([
             'author_id' => config('site.main_account_id'),
             'recipient_id' => $user->id,
-            'title' => 'Welcome To Brick Hill!',
+            'title' => 'Welcome To BrickBit!',
             'message' => '[bhstartmsg]',
             'read' => 0
         ]);

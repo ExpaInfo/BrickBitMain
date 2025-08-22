@@ -20,7 +20,7 @@ use App\Models\Item\Event;
 class ItemController extends Controller
 {
     /**
-     * Upload an item to the Brick Hill account
+     * Upload an item to the BrickBit account
      * 
      * @param UploadItem $request 
      * @param Uploader $uploader 

@@ -31,7 +31,7 @@ class PasswordChange extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->subject('Brick Hill - Password Change')
+            ->subject('BrickBit - Password Change')
             ->view('mail.security.passchange')->with([
                 'user' => $this->user
             ]);

@@ -31,7 +31,7 @@ class NewRecoveryCodes extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->subject('Brick Hill - Two Factor Authentication')
+            ->subject('BrickBit - Two Factor Authentication')
             ->view('mail.security.twofactor.newrecoverycodes')->with([
                 'user' => $this->user
             ]);

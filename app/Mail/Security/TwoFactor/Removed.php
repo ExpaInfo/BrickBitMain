@@ -31,7 +31,7 @@ class Removed extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->subject('Brick Hill - Two Factor Authentication')
+            ->subject('BrickBit - Two Factor Authentication')
             ->view('mail.security.twofactor.removed')->with([
                 'user' => $this->user
             ]);

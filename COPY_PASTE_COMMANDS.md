@@ -48,7 +48,7 @@ Source Type: CIDR
 Source CIDR: 0.0.0.0/0
 IP Protocol: TCP  
 Destination Port Range: 80
-Description: HTTP for Brick Hill
+Description: HTTP for BrickBit
 ```
 
 8. Click **Add Ingress Rules**
@@ -66,12 +66,12 @@ curl -I http://192.9.162.99
 
 ### **Monitor Resources:**
 ```bash
-cd /var/www/brickhill && ./monitor.sh
+cd /var/www/brickbit && ./monitor.sh
 ```
 
 ### **Check Logs:**
 ```bash
-tail -f /var/www/brickhill/storage/logs/laravel.log
+tail -f /var/www/brickbit/storage/logs/laravel.log
 ```
 
 ### **Restart Services (if needed):**

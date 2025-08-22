@@ -14,7 +14,7 @@
     </div>
 @endif
 <div style="text-align:center;padding-top:50px;">
-    <span style="font-weight:600;font-size:3rem;display:block;">Welcome to the new Brick Hill</span>
+    <span style="font-weight:600;font-size:3rem;display:block;">Welcome to the new BrickBit</span>
     <span style="font-weight:500;font-size:2rem;">We are currently under maintenance.</span>
     <div style="text-align:center;margin:20px;">
         @foreach($rands as $rand)

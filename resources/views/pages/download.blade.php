@@ -14,14 +14,14 @@
     <div class="main-holder grid holder legacy">
         <div style="margin-bottom:10px;">
             <div class="large-text bold">LEGACY DOWNLOAD</div>
-            <a href="{{ config('site.storage.domain') }}/downloads/BrickHillSetup.exe" class="download" style="width:100%;">
+            <a href="{{ config('site.storage.domain') }}/downloads/brickbitSetup.exe" class="download" style="width:100%;">
                 <button class="orange">
                     <h1 style="margin:0.6em 0.8em">Download</h1>
                 </button>
                 <div class="small-text dark-gray-text">V0.3, 13.58MB</div>
             </a>
         </div>
-        <a href="https://brickhill.gitlab.io/open-source/node-hill/" class="download" style="margin-top:30px;">
+        <a href="https://brickbit.gitlab.io/open-source/node-hill/" class="download" style="margin-top:30px;">
             <div class="large-text bold">SERVER</div>
             <button class="nh-button">
                 <h1 style="margin:0.6em 0.8em">NODE-HILL</h1>
@@ -34,7 +34,7 @@
         <div class="main-holder grid">
             <div class="col-1-2">
                 <div class="large-text bold">EXPERIMENTAL BUILD</div>
-                If you want to try something new, the beta release of the next Brick Hill Workshop is now open to public testers!
+                If you want to try something new, the beta release of the next BrickBit Workshop is now open to public testers!
                 Keep scrolling to find out more about what's been packed into this build, or dive into it right now by paying for access below.
                 <br><br>
                 Rest assured; all of what you spend on beta access goes directly back into funding the development of the client and workshop.

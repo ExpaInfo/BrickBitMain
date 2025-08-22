@@ -9,9 +9,9 @@ stages:
 
 variables:
     DOCKER_REGISTRY: .dkr.ecr.us-east-1.amazonaws.com
-    DOCKER_PRODUCTION: brickhill/site/production
-    DOCKER_NGINX: brickhill/site/nginx
-    MYSQL_DATABASE: brickhill
+    DOCKER_PRODUCTION: brickbit/site/production
+    DOCKER_NGINX: brickbit/site/nginx
+    MYSQL_DATABASE: brickbit
     MYSQL_ROOT_PASSWORD: secret
     TF_STATE_NAME: default
     TF_CACHE_KEY: default
@@ -77,7 +77,7 @@ npm:
 
 static-analysis-php:
     stage: test
-    image: registry.gitlab.com/brickhill/site/laravel-docker:latest
+    image: registry.gitlab.com/brickbit/site/laravel-docker:latest
     cache:
         key: larastan
         paths:
@@ -85,7 +85,7 @@ static-analysis-php:
     services:
         - mysql:8.0
     variables:
-        MYSQL_DATABASE: brickhill
+        MYSQL_DATABASE: brickbit
         MYSQL_ROOT_PASSWORD: secret
     dependencies:
         - composer
@@ -103,12 +103,12 @@ static-analysis-php:
 
 test-php:
     stage: test
-    image: registry.gitlab.com/brickhill/site/laravel-docker:latest
+    image: registry.gitlab.com/brickbit/site/laravel-docker:latest
     services:
         - mysql:8.0
         - redis:alpine
     variables:
-        MYSQL_DATABASE: brickhill
+        MYSQL_DATABASE: brickbit
         MYSQL_ROOT_PASSWORD: secret
     dependencies:
         - composer

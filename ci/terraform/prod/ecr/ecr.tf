@@ -1,7 +1,7 @@
 module "site_production" {
   source = "./default_ecr"
 
-  repository_name = "brickhill/site/production"
+  repository_name = "brickbit/site/production"
   cache           = true
 
   staging_account_id = var.staging_account_id
@@ -10,7 +10,7 @@ module "site_production" {
 module "nginx" {
   source = "./default_ecr"
 
-  repository_name = "brickhill/site/nginx"
+  repository_name = "brickbit/site/nginx"
   cache           = true
 
   staging_account_id = var.staging_account_id
@@ -19,7 +19,7 @@ module "nginx" {
 module "fluentd" {
   source = "./default_ecr"
 
-  repository_name = "brickhill/site/logging/fluentd"
+  repository_name = "brickbit/site/logging/fluentd"
 
   staging_account_id = var.staging_account_id
 }
@@ -27,7 +27,7 @@ module "fluentd" {
 module "blog" {
   source = "./default_ecr"
 
-  repository_name = "brickhill/site/blog/ghost"
+  repository_name = "brickbit/site/blog/ghost"
   cache           = true
 
   staging_account_id = var.staging_account_id

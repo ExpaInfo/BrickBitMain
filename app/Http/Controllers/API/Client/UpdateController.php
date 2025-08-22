@@ -72,9 +72,9 @@ class UpdateController extends Controller
         $getLatestInstaller = ClientBuild::where('is_installer', 1)->orderBy('id', 'DESC')->firstOrFail();
 
         $filename = match ($request->os) {
-            'windows' => 'BrickHill.exe',
-            'mac' => 'BrickHill.dmg',
-            'linux' => 'BrickHill.tar.gz',
+            'windows' => 'brickbit.exe',
+            'mac' => 'brickbit.dmg',
+            'linux' => 'brickbit.tar.gz',
             default => throw new InvalidDataException()
         };
 

@@ -42,7 +42,7 @@ class TwoFactorController extends Controller
         $code = Google2FA::generateSecretKey();
 
         $qrCodeInline = Google2FA::getQRCodeInline(
-            'Brick Hill',
+            'BrickBit',
             Auth::user()->username,
             $code,
             256,

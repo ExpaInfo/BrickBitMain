@@ -18,7 +18,7 @@ use App\Models\Polymorphic\AssetType;
 class AssetController extends Controller
 {
     /**
-     * Upload an asset to the Brick Hill account
+     * Upload an asset to the BrickBit account
      * 
      * @param UploadAsset $request 
      * @param Uploader $uploader 
@@ -55,7 +55,7 @@ class AssetController extends Controller
     public function updateAsset(Request $request, Item $item, Creator $creator, Uploader $uploader): array
     {
         if ($item->creator_id != config('site.main_account_id'))
-            throw new \App\Exceptions\Custom\InvalidDataException('Only items created by Brick Hill can be updated');
+            throw new \App\Exceptions\Custom\InvalidDataException('Only items created by BrickBit can be updated');
 
         $data = json_decode($request->assetData);
 

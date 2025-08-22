@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Complete Oracle Cloud Setup Script for Brick Hill
+# Complete Oracle Cloud Setup Script for BrickBit
 # Run this after creating your Oracle Cloud instance
 
-echo "🌟 Oracle Cloud Complete Setup for Brick Hill"
+echo "🌟 Oracle Cloud Complete Setup for BrickBit"
 echo "=============================================="
 echo "💰 Cost: FREE FOREVER"
 echo "⏱️  Estimated setup time: 15-20 minutes"
@@ -64,14 +64,14 @@ fi
 # Create application directory and set permissions
 echo ""
 echo "📁 Step 4/8: Setting up application structure..."
-sudo mkdir -p /var/www/brickhill
-sudo chown -R ubuntu:www-data /var/www/brickhill
+sudo mkdir -p /var/www/brickbit
+sudo chown -R ubuntu:www-data /var/www/brickbit
 
 # Copy application files
 echo ""
 echo "📋 Step 5/8: Deploying application files..."
-cp -r . /var/www/brickhill/
-cd /var/www/brickhill
+cp -r . /var/www/brickbit/
+cd /var/www/brickbit
 
 # Set up optimized environment
 echo ""
@@ -131,12 +131,12 @@ echo "🌐 Step 8/8: Configuring web server..."
 sudo rm -f /etc/nginx/sites-enabled/default
 
 # Create optimized Nginx configuration
-sudo tee /etc/nginx/sites-available/brickhill > /dev/null << 'EOF'
+sudo tee /etc/nginx/sites-available/brickbit > /dev/null << 'EOF'
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
     
-    root /var/www/brickhill/public;
+    root /var/www/brickbit/public;
     index index.php index.html;
     server_name _;
 
@@ -191,11 +191,11 @@ server {
 EOF
 
 # Enable site
-sudo ln -sf /etc/nginx/sites-available/brickhill /etc/nginx/sites-enabled/
+sudo ln -sf /etc/nginx/sites-available/brickbit /etc/nginx/sites-enabled/
 
 # Configure PHP-FPM for low memory
-sudo tee /etc/php/8.1/fpm/pool.d/brickhill.conf > /dev/null << EOF
-[brickhill]
+sudo tee /etc/php/8.1/fpm/pool.d/brickbit.conf > /dev/null << EOF
+[brickbit]
 user = www-data
 group = www-data
 listen = /var/run/php/php8.1-fpm.sock
@@ -222,11 +222,11 @@ sudo php-fpm8.1 -t
 
 # Set final permissions
 echo "🔒 Setting final permissions..."
-sudo chown -R www-data:www-data /var/www/brickhill
-sudo chmod -R 755 /var/www/brickhill
-sudo chmod -R 775 /var/www/brickhill/storage
-sudo chmod -R 775 /var/www/brickhill/bootstrap/cache
-sudo chmod -R 775 /var/www/brickhill/database
+sudo chown -R www-data:www-data /var/www/brickbit
+sudo chmod -R 755 /var/www/brickbit
+sudo chmod -R 775 /var/www/brickbit/storage
+sudo chmod -R 775 /var/www/brickbit/bootstrap/cache
+sudo chmod -R 775 /var/www/brickbit/database
 
 # Make scripts executable
 chmod +x monitor.sh
@@ -249,7 +249,7 @@ sudo systemctl restart nginx php8.1-fpm
 
 # Set up automated maintenance
 echo "⏰ Setting up automated maintenance..."
-(crontab -l 2>/dev/null; echo "0 2 * * 0 /var/www/brickhill/oracle-maintenance.sh >> /var/log/brickhill-maintenance.log 2>&1") | crontab -
+(crontab -l 2>/dev/null; echo "0 2 * * 0 /var/www/brickbit/oracle-maintenance.sh >> /var/log/brickbit-maintenance.log 2>&1") | crontab -
 
 # Final status check
 echo ""
@@ -288,9 +288,9 @@ echo "Run maintenance:      ./oracle-maintenance.sh"
 echo "Check logs:          tail -f storage/logs/laravel.log"
 echo "Restart services:    sudo systemctl restart nginx php8.1-fpm"
 echo ""
-echo "🎯 Your Brick Hill site is ready for up to 100 users - FREE FOREVER!"
+echo "🎯 Your BrickBit site is ready for up to 100 users - FREE FOREVER!"
 
 # Create a status file
-echo "Deployment completed on $(date)" > /var/www/brickhill/DEPLOYMENT_STATUS.txt
-echo "Server IP: $SERVER_IP" >> /var/www/brickhill/DEPLOYMENT_STATUS.txt
-echo "Site status: $SITE_STATUS" >> /var/www/brickhill/DEPLOYMENT_STATUS.txt
+echo "Deployment completed on $(date)" > /var/www/brickbit/DEPLOYMENT_STATUS.txt
+echo "Server IP: $SERVER_IP" >> /var/www/brickbit/DEPLOYMENT_STATUS.txt
+echo "Site status: $SITE_STATUS" >> /var/www/brickbit/DEPLOYMENT_STATUS.txt

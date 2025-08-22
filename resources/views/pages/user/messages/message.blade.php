@@ -19,12 +19,12 @@
                 @if($message->author_id == config('site.main_account_id') && $message->message == '[bhstartmsg]')
                 Hello there, {{ Auth::user()->username }}!
                 <br><br>
-                Welcome to Brick Hill, we're glad to have you here. We hope you have a wonderful time, but to make sure you can make the most here, we ask that you brush up on a few of our guidelines.
+                Welcome to BrickBit, we're glad to have you here. We hope you have a wonderful time, but to make sure you can make the most here, we ask that you brush up on a few of our guidelines.
                 <br><br>
                 <a style="color:#444" href="/rules">Here</a> are some <a style="color:#444" href="/forum/thread/1/">basic rules</a> to get you settled in with the crowd! If you're unsure about anything then you can always take a look at our <a style="color:#444" href="/terms">Terms of Service</a>, which will always be situated at the footer of each page!
                 <br><br>
                 Thanks for stopping by,<br>
-                Brick Hill
+                BrickBit
                 @else
                 {!! nl2br(e($message->message)) !!}
                 @endif

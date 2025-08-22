@@ -9,4 +9,4 @@ The link will expire in 1 hour, or until you use it.
 Make sure to use a secure and memorable password.
 <br>
 Happy Hilling!<br>
-Brick Hill
+BrickBit

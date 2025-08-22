@@ -6,4 +6,4 @@ Thanks for verifying your account. This'll make your account more secure if you 
 If this request wasn't by you, then you can just ignore this email. 
 <br><br>
 Happy Hilling!<br>
-Brick Hill
+BrickBit

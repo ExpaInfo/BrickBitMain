@@ -36,7 +36,7 @@ class VerificationMail extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->subject('Brick Hill - Verify Email')
+            ->subject('BrickBit - Verify Email')
             ->view('mail.verification')->with([
                 'user' => $this->user,
                 'email' => Email::where([['user_id', $this->user->id], ['verified', 0]])->orderBy('updated_at', 'DESC')->firstOrFail()

@@ -447,7 +447,7 @@ function playButton() {
         .get(BH.apiUrl(`v1/auth/generateToken?set=${props.setId}`))
         .then(({ data }) => {
             let ip = atob(props.setIp.split("").reverse().join(""));
-            window.location.href = `brickhill.legacy://client/${data.token}/${ip}/${props.setPort}`;
+            window.location.href = `brickbit.legacy://client/${data.token}/${ip}/${props.setPort}`;
         });
 }
 

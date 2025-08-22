@@ -181,7 +181,7 @@ class LegacySetAPIController extends Controller
 
     public function postServer()
     {
-        throw new APIException('This API is deprecated. Update to Node-Hill 11. Documentation for the update can be found at https://brickhill.gitlab.io/open-source/node-hill/index.html with instruction steps 4 and 5.');
+        throw new APIException('This API is deprecated. Update to Node-Hill 11. Documentation for the update can be found at https://brickbit.gitlab.io/open-source/node-hill/index.html with instruction steps 4 and 5.');
     }
 
     public function latest()

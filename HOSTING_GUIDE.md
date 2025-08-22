@@ -1,4 +1,4 @@
-# Brick Hill Hosting Guide - Under $40 AUD
+# BrickBit Hosting Guide - Under $40 AUD
 
 ## 🎯 Recommended Hosting Solution: Vultr VPS
 
@@ -27,7 +27,7 @@ ssh root@YOUR_SERVER_IP
 ### 3. Upload and Run Deployment Script
 
 ```bash
-# On your server, download the Brick Hill code
+# On your server, download the BrickBit code
 git clone https://github.com/Saumodunn/Brick-Hill.git
 cd Brick-Hill
 
@@ -50,9 +50,9 @@ chmod +x deploy.sh
 
 ### 5. Update Configuration
 
-Edit `/var/www/brickhill/.env`:
+Edit `/var/www/brickbit/.env`:
 ```bash
-sudo nano /var/www/brickhill/.env
+sudo nano /var/www/brickbit/.env
 ```
 
 Update these values:
@@ -138,7 +138,7 @@ DB_COLLATION=utf8mb4_unicode_ci
    ```
 4. **Monitor logs**:
    ```bash
-   tail -f /var/www/brickhill/storage/logs/laravel.log
+   tail -f /var/www/brickbit/storage/logs/laravel.log
    ```
 
 ## 🆘 Common Issues & Solutions
@@ -146,16 +146,16 @@ DB_COLLATION=utf8mb4_unicode_ci
 ### Issue: 500 Internal Server Error
 ```bash
 # Check Laravel logs
-tail -f /var/www/brickhill/storage/logs/laravel.log
+tail -f /var/www/brickbit/storage/logs/laravel.log
 
 # Check Nginx logs
 sudo tail -f /var/log/nginx/error.log
 
 # Fix permissions
-sudo chown -R www-data:www-data /var/www/brickhill
-sudo chmod -R 755 /var/www/brickhill
-sudo chmod -R 775 /var/www/brickhill/storage
-sudo chmod -R 775 /var/www/brickhill/bootstrap/cache
+sudo chown -R www-data:www-data /var/www/brickbit
+sudo chmod -R 755 /var/www/brickbit
+sudo chmod -R 775 /var/www/brickbit/storage
+sudo chmod -R 775 /var/www/brickbit/bootstrap/cache
 ```
 
 ### Issue: Database Connection Error
@@ -177,7 +177,7 @@ php artisan tinker
 
 ## 🎉 You're Ready to Launch!
 
-Once deployed, your Brick Hill site will be accessible at your domain with:
+Once deployed, your BrickBit site will be accessible at your domain with:
 - ✅ Full Laravel functionality
 - ✅ Vue.js frontend
 - ✅ MySQL database

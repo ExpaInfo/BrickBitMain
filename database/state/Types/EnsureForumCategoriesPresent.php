@@ -29,7 +29,7 @@ class EnsureForumCategoriesPresent extends State
      */
     protected array $rows = [
         ['id' => 1, 'order' => 1, 'title' => 'Admin', 'color' => 'red'],
-        ['id' => 2, 'order' => 2, 'title' => 'Brick Hill', 'color' => 'blue'],
+        ['id' => 2, 'order' => 2, 'title' => 'BrickBit', 'color' => 'blue'],
         ['id' => 3, 'order' => 3, 'title' => 'Random', 'color' => 'green'],
         ['id' => 4, 'order' => 4, 'title' => 'Workshop', 'color' => 'orange'],
     ];

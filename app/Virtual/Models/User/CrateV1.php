@@ -37,7 +37,7 @@ class CrateV1
      *  @OA\Property(
      *      title="username",
      *      description="Crate owners username",
-     *      example="Brick Hill"
+     *      example="BrickBit"
      *  )
      *
      * @var string

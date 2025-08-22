@@ -27,7 +27,7 @@
                 {{ redeemStatus.message }}
             </div>
             <div style="padding-bottom: 50px">
-                Promo codes can be obtained through official Brick Hill
+                Promo codes can be obtained through official BrickBit
                 promotions or through events hosted by us. As well as this,
                 promocodes may be included in products or merchandise produced
                 by us.

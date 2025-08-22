@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# INSTANT BRICK HILL DEPLOYMENT FOR ORACLE CLOUD
+# INSTANT BrickBit DEPLOYMENT FOR ORACLE CLOUD
 # One command does EVERYTHING - optimized for 192.9.162.99 (1GB AMD)
 # Run this on your Oracle Cloud server for instant deployment
 
 set -e
 
-echo "🚀 INSTANT BRICK HILL DEPLOYMENT"
+echo "🚀 INSTANT BrickBit DEPLOYMENT"
 echo "================================="
 echo "🎯 Target: 192.9.162.99 (Oracle Cloud AMD 1GB)"
 echo "💰 Cost: FREE FOREVER"
@@ -49,16 +49,16 @@ success "Composer installed"
 
 # Step 4: Setup application
 progress "Setting up application structure (step 4/10)"
-sudo mkdir -p /var/www/brickhill
-sudo chown -R ubuntu:www-data /var/www/brickhill
-cp -r . /var/www/brickhill/
-cd /var/www/brickhill
+sudo mkdir -p /var/www/brickbit
+sudo chown -R ubuntu:www-data /var/www/brickbit
+cp -r . /var/www/brickbit/
+cd /var/www/brickbit
 success "Application copied"
 
 # Step 5: Configure environment
 progress "Configuring environment (step 5/10)"
 cat > .env << 'EOF'
-APP_NAME='Brick Hill'
+APP_NAME='BrickBit'
 APP_ENV=production
 APP_KEY=
 APP_DEBUG=false
@@ -78,7 +78,7 @@ CSS_ASSET_PATH=/dist/css/
 
 # SQLite for minimal resources
 DB_CONNECTION=sqlite
-DB_DATABASE=/var/www/brickhill/database/database.sqlite
+DB_DATABASE=/var/www/brickbit/database/database.sqlite
 
 # File caching (no Redis)
 CACHE_DRIVER=file
@@ -90,8 +90,8 @@ BROADCAST_DRIVER=log
 MAIL_MAILER=log
 
 # Local storage
-STORAGE_FILE_LOC=/var/www/brickhill/storage/app/public
-STORAGE_LOCAL_LOC=/var/www/brickhill/storage/app/public
+STORAGE_FILE_LOC=/var/www/brickbit/storage/app/public
+STORAGE_LOCAL_LOC=/var/www/brickbit/storage/app/public
 EOF
 success "Environment configured"
 
@@ -122,10 +122,10 @@ success "Laravel configured"
 progress "Configuring Nginx (step 9/10)"
 sudo rm -f /etc/nginx/sites-enabled/default
 
-sudo tee /etc/nginx/sites-available/brickhill > /dev/null << 'EOF'
+sudo tee /etc/nginx/sites-available/brickbit > /dev/null << 'EOF'
 server {
     listen 80 default_server;
-    root /var/www/brickhill/public;
+    root /var/www/brickbit/public;
     index index.php;
     server_name _;
 
@@ -149,11 +149,11 @@ server {
 }
 EOF
 
-sudo ln -sf /etc/nginx/sites-available/brickhill /etc/nginx/sites-enabled/
+sudo ln -sf /etc/nginx/sites-available/brickbit /etc/nginx/sites-enabled/
 
 # Optimize PHP for 1GB RAM
-sudo tee /etc/php/8.1/fpm/pool.d/brickhill.conf > /dev/null << 'EOF'
-[brickhill]
+sudo tee /etc/php/8.1/fpm/pool.d/brickbit.conf > /dev/null << 'EOF'
+[brickbit]
 user = www-data
 group = www-data
 listen = /var/run/php/php8.1-fpm.sock
@@ -171,8 +171,8 @@ success "Web server configured"
 
 # Step 9: Set permissions and start services
 progress "Starting services (step 10/10)"
-sudo chown -R www-data:www-data /var/www/brickhill
-sudo chmod -R 775 /var/www/brickhill/storage /var/www/brickhill/bootstrap/cache /var/www/brickhill/database
+sudo chown -R www-data:www-data /var/www/brickbit
+sudo chmod -R 775 /var/www/brickbit/storage /var/www/brickbit/bootstrap/cache /var/www/brickbit/database
 
 sudo systemctl enable nginx php8.1-fpm > /dev/null 2>&1
 sudo systemctl restart nginx php8.1-fpm
@@ -202,7 +202,7 @@ echo "💿 Disk: $(df -h / | awk 'NR==2{print $3"/"$2" ("$5")"}')"
 echo ""
 
 if [ "$RESPONSE_CODE" = "200" ]; then
-    echo -e "${GREEN}✅ SUCCESS! Your Brick Hill site is LIVE!${NC}"
+    echo -e "${GREEN}✅ SUCCESS! Your BrickBit site is LIVE!${NC}"
     echo ""
     echo "🎯 IMMEDIATE ACCESS:"
     echo "   👉 Open browser: http://192.9.162.99"
@@ -225,4 +225,4 @@ echo ""
 echo "📈 PERFORMANCE: Optimized for 20-50 concurrent users"
 echo "🆓 COST: $0 forever (Oracle Cloud Always Free)"
 echo ""
-echo "🎉 Welcome to your FREE Brick Hill hosting!"
+echo "🎉 Welcome to your FREE BrickBit hosting!"

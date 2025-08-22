@@ -100,7 +100,7 @@
                     <div class="top blue">Transfer Crate</div>
                     <div class="content">
                         Any item can be transferred to any account. User ID 1003
-                        is the main Brick Hill account
+                        is the main BrickBit account
                         <br /><br />
                         <div class="block">
                             <input

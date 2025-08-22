@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Oracle Cloud Performance Monitor for Brick Hill
+# Oracle Cloud Performance Monitor for BrickBit
 # Monitors resource usage and alerts when limits are reached
 
-echo "📊 Oracle Cloud - Brick Hill Performance Monitor"
+echo "📊 Oracle Cloud - BrickBit Performance Monitor"
 echo "=============================================="
 echo "⏰ $(date)"
 echo ""
@@ -91,7 +91,7 @@ echo "📁 STORAGE ANALYSIS"
 echo "==================="
 
 # Laravel logs size
-LARAVEL_LOGS_SIZE=$(du -sh /var/www/brickhill/storage/logs 2>/dev/null | cut -f1)
+LARAVEL_LOGS_SIZE=$(du -sh /var/www/brickbit/storage/logs 2>/dev/null | cut -f1)
 echo "🔸 Laravel Logs: ${LARAVEL_LOGS_SIZE}"
 
 # System logs size
@@ -99,7 +99,7 @@ SYSTEM_LOGS_SIZE=$(du -sh /var/log 2>/dev/null | cut -f1)
 echo "🔸 System Logs: ${SYSTEM_LOGS_SIZE}"
 
 # SQLite database size
-SQLITE_SIZE=$(du -sh /var/www/brickhill/database/database.sqlite 2>/dev/null | cut -f1)
+SQLITE_SIZE=$(du -sh /var/www/brickbit/database/database.sqlite 2>/dev/null | cut -f1)
 echo "🔸 SQLite Database: ${SQLITE_SIZE}"
 
 echo ""
@@ -134,7 +134,7 @@ fi
 # Disk Alert
 if [ $DISK_PERCENT -gt 85 ]; then
     echo -e "${RED}🚨 HIGH DISK USAGE (${DISK_PERCENT}%)${NC}"
-    echo "   → Clean logs: /var/www/brickhill/oracle-maintenance.sh"
+    echo "   → Clean logs: /var/www/brickbit/oracle-maintenance.sh"
     ALERTS=$((ALERTS + 1))
 fi
 
@@ -161,7 +161,7 @@ fi
 # Website Alert
 if [ "$RESPONSE_CODE" != "200" ]; then
     echo -e "${RED}🚨 WEBSITE NOT RESPONDING${NC}"
-    echo "   → Check logs: tail -f /var/www/brickhill/storage/logs/laravel.log"
+    echo "   → Check logs: tail -f /var/www/brickbit/storage/logs/laravel.log"
     ALERTS=$((ALERTS + 1))
 fi
 
@@ -177,12 +177,12 @@ echo "==================="
 if [ $RAM_PERCENT -gt 60 ]; then
     echo "💡 RAM optimization tips:"
     echo "   → Restart PHP-FPM weekly: sudo systemctl restart php8.1-fpm"
-    echo "   → Consider reducing PHP-FPM max_children in /etc/php/8.1/fpm/pool.d/brickhill.conf"
+    echo "   → Consider reducing PHP-FPM max_children in /etc/php/8.1/fpm/pool.d/brickbit.conf"
 fi
 
 if [ $DISK_PERCENT -gt 60 ]; then
     echo "💡 Disk optimization tips:"
-    echo "   → Run maintenance script weekly: /var/www/brickhill/oracle-maintenance.sh"
+    echo "   → Run maintenance script weekly: /var/www/brickbit/oracle-maintenance.sh"
     echo "   → Enable log rotation for Laravel logs"
 fi
 
@@ -190,13 +190,13 @@ echo ""
 echo "🔧 QUICK ACTIONS"
 echo "================"
 echo "Restart services:    sudo systemctl restart nginx php8.1-fpm"
-echo "Run maintenance:     /var/www/brickhill/oracle-maintenance.sh"
-echo "Check error logs:    tail -f /var/www/brickhill/storage/logs/laravel.log"
+echo "Run maintenance:     /var/www/brickbit/oracle-maintenance.sh"
+echo "Check error logs:    tail -f /var/www/brickbit/storage/logs/laravel.log"
 echo "View system logs:    sudo journalctl -f"
 echo ""
 
 # Save monitoring data for trend analysis
 TIMESTAMP=$(date +%s)
-echo "$TIMESTAMP,$RAM_PERCENT,$DISK_PERCENT,$LOAD_AVG,$RESPONSE_CODE" >> /var/log/brickhill-metrics.csv
+echo "$TIMESTAMP,$RAM_PERCENT,$DISK_PERCENT,$LOAD_AVG,$RESPONSE_CODE" >> /var/log/brickbit-metrics.csv
 
-echo "📊 Monitor completed. Metrics saved to /var/log/brickhill-metrics.csv"
+echo "📊 Monitor completed. Metrics saved to /var/log/brickbit-metrics.csv"

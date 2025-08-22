@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Brick Hill Deployment Script for Ubuntu/Debian VPS
-# This script sets up the entire environment for hosting Brick Hill
+# BrickBit Deployment Script for Ubuntu/Debian VPS
+# This script sets up the entire environment for hosting BrickBit
 
 set -e
 
-echo "🚀 Starting Brick Hill deployment..."
+echo "🚀 Starting BrickBit deployment..."
 
 # Update system
 echo "📦 Updating system packages..."
@@ -24,13 +24,13 @@ fi
 
 # Create application directory
 echo "📁 Setting up application directory..."
-sudo mkdir -p /var/www/brickhill
-sudo chown -R $USER:www-data /var/www/brickhill
+sudo mkdir -p /var/www/brickbit
+sudo chown -R $USER:www-data /var/www/brickbit
 
 # Copy application files
 echo "📋 Copying application files..."
-cp -r . /var/www/brickhill/
-cd /var/www/brickhill
+cp -r . /var/www/brickbit/
+cd /var/www/brickbit
 
 # Install PHP dependencies
 echo "📦 Installing PHP dependencies..."
@@ -43,9 +43,9 @@ npm run production
 
 # Set up database
 echo "🗄️ Setting up database..."
-sudo mysql -e "CREATE DATABASE IF NOT EXISTS brickhill_production;"
-sudo mysql -e "CREATE USER IF NOT EXISTS 'brickhill_user'@'localhost' IDENTIFIED BY 'secure_password_here';"
-sudo mysql -e "GRANT ALL PRIVILEGES ON brickhill_production.* TO 'brickhill_user'@'localhost';"
+sudo mysql -e "CREATE DATABASE IF NOT EXISTS brickbit_production;"
+sudo mysql -e "CREATE USER IF NOT EXISTS 'brickbit_user'@'localhost' IDENTIFIED BY 'secure_password_here';"
+sudo mysql -e "GRANT ALL PRIVILEGES ON brickbit_production.* TO 'brickbit_user'@'localhost';"
 sudo mysql -e "FLUSH PRIVILEGES;"
 
 # Set up environment file
@@ -53,8 +53,8 @@ echo "⚙️ Configuring environment..."
 cp .env.example .env
 sed -i 's/APP_ENV=local/APP_ENV=production/' .env
 sed -i 's/APP_DEBUG=true/APP_DEBUG=false/' .env
-sed -i 's/DB_DATABASE=testbh/DB_DATABASE=brickhill_production/' .env
-sed -i 's/DB_USERNAME=root/DB_USERNAME=brickhill_user/' .env
+sed -i 's/DB_DATABASE=testbh/DB_DATABASE=brickbit_production/' .env
+sed -i 's/DB_USERNAME=root/DB_USERNAME=brickbit_user/' .env
 sed -i 's/DB_PASSWORD=secret/DB_PASSWORD=secure_password_here/' .env
 sed -i 's|APP_URL=http://\[domain\].test|APP_URL=https://yourdomain.com|' .env
 
@@ -76,17 +76,17 @@ php artisan passport:install
 
 # Set proper permissions
 echo "🔒 Setting up permissions..."
-sudo chown -R $USER:www-data /var/www/brickhill
-sudo chmod -R 775 /var/www/brickhill/storage
-sudo chmod -R 775 /var/www/brickhill/bootstrap/cache
+sudo chown -R $USER:www-data /var/www/brickbit
+sudo chmod -R 775 /var/www/brickbit/storage
+sudo chmod -R 775 /var/www/brickbit/bootstrap/cache
 
 # Configure Nginx
 echo "🌐 Configuring Nginx..."
-sudo tee /etc/nginx/sites-available/brickhill << EOF
+sudo tee /etc/nginx/sites-available/brickbit << EOF
 server {
     listen 80;
     server_name yourdomain.com www.yourdomain.com;
-    root /var/www/brickhill/public;
+    root /var/www/brickbit/public;
 
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "1; mode=block";
@@ -121,7 +121,7 @@ server {
 EOF
 
 # Enable the site
-sudo ln -sf /etc/nginx/sites-available/brickhill /etc/nginx/sites-enabled/
+sudo ln -sf /etc/nginx/sites-available/brickbit /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
 
@@ -132,14 +132,14 @@ sudo apt install -y certbot python3-certbot-nginx
 
 # Set up cron job for Laravel scheduler
 echo "⏰ Setting up Laravel scheduler..."
-(crontab -l 2>/dev/null; echo "* * * * * cd /var/www/brickhill && php artisan schedule:run >> /dev/null 2>&1") | crontab -
+(crontab -l 2>/dev/null; echo "* * * * * cd /var/www/brickbit && php artisan schedule:run >> /dev/null 2>&1") | crontab -
 
 # Set up supervisor for queue workers (optional)
 sudo apt install -y supervisor
-sudo tee /etc/supervisor/conf.d/brickhill-worker.conf << EOF
-[program:brickhill-worker]
+sudo tee /etc/supervisor/conf.d/brickbit-worker.conf << EOF
+[program:brickbit-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/brickhill/artisan queue:work redis --sleep=3 --tries=3 --max-time=3600
+command=php /var/www/brickbit/artisan queue:work redis --sleep=3 --tries=3 --max-time=3600
 autostart=true
 autorestart=true
 stopasgroup=true
@@ -147,7 +147,7 @@ killasgroup=true
 user=www-data
 numprocs=2
 redirect_stderr=true
-stdout_logfile=/var/www/brickhill/storage/logs/worker.log
+stdout_logfile=/var/www/brickbit/storage/logs/worker.log
 stopwaitsecs=3600
 EOF
 
@@ -157,7 +157,7 @@ sudo supervisorctl update
 echo "✅ Deployment complete!"
 echo "📝 Next steps:"
 echo "1. Update your domain DNS to point to this server"
-echo "2. Update the APP_URL in /var/www/brickhill/.env"
+echo "2. Update the APP_URL in /var/www/brickbit/.env"
 echo "3. Set up your reCAPTCHA keys"
 echo "4. Configure your mail settings"
 echo "5. Run: sudo certbot --nginx -d yourdomain.com"

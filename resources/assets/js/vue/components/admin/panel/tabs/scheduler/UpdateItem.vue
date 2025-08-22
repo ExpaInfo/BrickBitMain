@@ -279,7 +279,7 @@ function searchForItem() {
         .get(BH.apiUrl(`v1/shop/${searchItem.value}`))
         .then(({ data }) => {
             if (data.data.creator.id != BH.main_account_id)
-                return Promise.reject("You can only edit Brick Hill items");
+                return Promise.reject("You can only edit BrickBit items");
             selectItem(data.data);
             return;
         })

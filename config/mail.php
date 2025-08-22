@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => 'noreply@brick-hill.com',
-        'name' => 'Brick Hill',
+        'name' => 'BrickBit',
     ],
 
     /*

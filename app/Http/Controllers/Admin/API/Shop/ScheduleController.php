@@ -63,7 +63,7 @@ class ScheduleController extends Controller
         $this->authorize('updateOfficial', $item);
 
         if ($item->creator_id != config('site.main_account_id'))
-            throw new \App\Exceptions\Custom\InvalidDataException('Only items created by Brick Hill can be scheduled');
+            throw new \App\Exceptions\Custom\InvalidDataException('Only items created by BrickBit can be scheduled');
 
         if ($request->virtual['offsale']) {
             $bits = NULL;

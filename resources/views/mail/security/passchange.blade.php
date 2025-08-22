@@ -5,4 +5,4 @@ or <a href="{{ config('site.url') }}/password/forgot">recover your account here<
 Make sure to use a secure and memorable password.
 <br><br>
 Happy Hilling!<br>
-Brick Hill
+BrickBit

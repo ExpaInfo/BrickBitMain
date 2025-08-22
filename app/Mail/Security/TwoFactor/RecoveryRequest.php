@@ -31,7 +31,7 @@ class RecoveryRequest extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->subject('Brick Hill - Two Factor Authentication Recovery')
+            ->subject('BrickBit - Two Factor Authentication Recovery')
             ->view('mail.security.twofactor.recoveryrequest')->with([
                 'user' => $this->user,
                 'recoveryCode' => $this->recoveryCode

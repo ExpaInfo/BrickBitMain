@@ -160,7 +160,7 @@ class AdminUserController extends Controller
             Ban::create([
                 'user_id' => $id,
                 'admin_id' => Auth::id(),
-                'note' => 'Do not sign up to Brick Hill with intent on breaking our rules.',
+                'note' => 'Do not sign up to BrickBit with intent on breaking our rules.',
                 'length' => 37317600,
                 'active' => 1
             ]);

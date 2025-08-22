@@ -4,4 +4,4 @@ If this wasn't you, change your password in the <a href="{{ config('site.url') }
 Make sure to use a secure and memorable password, and never give out your Two Factor Authentication codes.
 <br><br>
 Happy Hilling!<br>
-Brick Hill
+BrickBit

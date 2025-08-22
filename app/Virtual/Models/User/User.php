@@ -25,7 +25,7 @@ class User
      *      title="username",
      *      description="Username of the user",
      *      format="string",
-     *      example="Brick Hill"
+     *      example="BrickBit"
      *  )
      *
      * @var string
@@ -37,7 +37,7 @@ class User
      *      title="description",
      *      description="Description of the user",
      *      format="string",
-     *      example="Welcome to Brick Hill!"
+     *      example="Welcome to BrickBit!"
      *  )
      *
      * @var string

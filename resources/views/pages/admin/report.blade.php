@@ -9,7 +9,7 @@
 			Report
 		</div>
 		<div class="content">
-			<span class="darker-grey-text bold block">Tell us how you think this {{ request()->type }} is breaking the Brick Hill rules.</span>
+			<span class="darker-grey-text bold block">Tell us how you think this {{ request()->type }} is breaking the BrickBit rules.</span>
 			<form method="POST" action="/report/send">
 				@csrf
 				<input type="hidden" name="reportable_type" value="{{ $report_type }}">

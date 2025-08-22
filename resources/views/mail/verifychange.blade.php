@@ -7,4 +7,4 @@ If the link is expired and you still wish to revert the email you can contact us
 <a href="{{ config('site.url') }}/email/revert?key={{ $current_email['revert_code'] }}">{{ config('site.url') }}/email/revert</a>
 <br><br>
 Happy Hilling!<br>
-Brick Hill
+BrickBit

@@ -1,6 +1,6 @@
 # Ultra-Budget VPS Options: $15-25 AUD/Year for <100 Users
 
-## 🎯 **Challenge**: Host Brick Hill for $15-25 AUD/year (~$1.25-2 AUD/month)
+## 🎯 **Challenge**: Host BrickBit for $15-25 AUD/year (~$1.25-2 AUD/month)
 
 This is an extremely tight budget, but there are some options!
 
@@ -94,7 +94,7 @@ For $15-25 AUD/year hosting a full Laravel application:
 
 1. **Sign up** for Oracle Cloud (always free tier)
 2. **Create** AMD instance (1GB RAM, always available)
-3. **Optimize** Brick Hill for low-resource environment
+3. **Optimize** BrickBit for low-resource environment
 4. **Deploy** using simplified configuration
 5. **Monitor** performance and user growth
 
@@ -103,7 +103,7 @@ If you need more power later, upgrade to a paid plan.
 
 ## 📝 **Modified Deployment for Ultra-Budget**
 
-I can create a simplified version of Brick Hill that:
+I can create a simplified version of BrickBit that:
 - Uses SQLite instead of MySQL
 - Removes Redis dependency
 - Simplifies asset compilation
@@ -113,7 +113,7 @@ This would run comfortably on a 1GB RAM instance.
 
 ## 💭 **Alternative: Static Site Approach**
 
-Convert Brick Hill to:
+Convert BrickBit to:
 - **Frontend**: Static Vue.js site (host on Netlify/Vercel - free)
 - **Backend**: Serverless functions (Vercel/Netlify functions - free tier)
 - **Database**: PlanetScale free tier or Supabase

@@ -59,7 +59,7 @@
                         </button>
                     </div>
                     <div class="col-1-1">
-                        <span class="gray-text" style="font-size:14px;">By signing up to Brick Hill, you confirm that you have read and agree to the <a class="dark-gray-text bold" href="/terms" target="_blank">Terms of Service</a>, as well as our <a class="dark-gray-text bold" href="/privacy" target="_blank">Privacy Policy</a>.</span>
+                        <span class="gray-text" style="font-size:14px;">By signing up to BrickBit, you confirm that you have read and agree to the <a class="dark-gray-text bold" href="/terms" target="_blank">Terms of Service</a>, as well as our <a class="dark-gray-text bold" href="/privacy" target="_blank">Privacy Policy</a>.</span>
                     </div>
                 </form>
             </div>

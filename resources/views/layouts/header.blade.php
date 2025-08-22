@@ -71,7 +71,7 @@
     @stack('meta')
     <meta name="theme-color" content="#00A9FE">
     <meta name="og:image" content="{{ asset('favicon.ico') }}">
-    <meta name="og:site_name" content="Brick Hill">
+    <meta name="og:site_name" content="BrickBit">
     <meta name="og:description" content="A platform built on its community where you can customise your avatar, create and play games, or just socialise with others!">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -97,11 +97,11 @@
     @endguest
 
     @hasSection('title')
-        <title>@yield('title') - {{ config('app.name', 'Brick Hill') }}</title>
-        <meta name="og:title" content="@yield('title') - {{ config('app.name', 'Brick Hill') }}">
+        <title>@yield('title') - {{ config('app.name', 'BrickBit') }}</title>
+        <meta name="og:title" content="@yield('title') - {{ config('app.name', 'BrickBit') }}">
     @else
-        <title>{{ config('app.name', 'Brick Hill') }}</title>
-        <meta name="og:title" content="{{ config('app.name', 'Brick Hill') }}">
+        <title>{{ config('app.name', 'BrickBit') }}</title>
+        <meta name="og:title" content="{{ config('app.name', 'BrickBit') }}">
     @endif
 
     <link href="{{ asset('favicon.ico') }}" rel="icon">
@@ -169,7 +169,7 @@
     <script src="{{ mix('legacy.js') }}"></script>
     @stack('scripts')
 
-    <meta name="author" content="Brick Hill">
+    <meta name="author" content="BrickBit">
 </head>
 <body>
     <nav>

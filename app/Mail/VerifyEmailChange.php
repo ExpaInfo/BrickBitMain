@@ -40,7 +40,7 @@ class VerifyEmailChange extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->subject('Brick Hill - Email Change')
+            ->subject('BrickBit - Email Change')
             ->view('mail.verifychange')->with([
                 'user' => $this->user,
                 'current_email' => $this->currentEmail,

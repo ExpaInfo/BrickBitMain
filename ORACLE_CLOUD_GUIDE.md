@@ -1,4 +1,4 @@
-# Oracle Cloud FREE Hosting Guide for Brick Hill
+# Oracle Cloud FREE Hosting Guide for BrickBit
 
 ## 🎯 **COST: $0 AUD/year - FREE FOREVER!**
 
@@ -52,7 +52,7 @@ Oracle Cloud offers a genuinely free tier that never expires. Perfect for your b
 
 **🎯 RECOMMENDED: AMD Standard (Always Available)**
 ```
-Name: brickhill-server
+Name: brickbit-server
 Image: Ubuntu 22.04 Minimal
 Shape: VM.Standard.E2.1.Micro
 - 1 CPU (AMD)
@@ -63,7 +63,7 @@ Cost: FREE FOREVER
 
 **🏆 IDEAL: ARM Ampere (If Available)**
 ```
-Name: brickhill-server
+Name: brickbit-server
 Image: Ubuntu 22.04 Minimal  
 Shape: VM.Standard.A1.Flex
 - 4 CPUs (ARM)
@@ -85,7 +85,7 @@ Cost: FREE FOREVER
 
 ---
 
-## 🔧 **Step 3: Deploy Brick Hill**
+## 🔧 **Step 3: Deploy BrickBit**
 
 ### **3.1 Connect to Your Instance**
 
@@ -99,11 +99,11 @@ ssh -i "C:\path\to\YOUR_PRIVATE_KEY.key" ubuntu@YOUR_IP
 1. Convert .key to .ppk using PuTTYgen
 2. Connect using PuTTY with the .ppk file
 
-### **3.2 Download Brick Hill Code**
+### **3.2 Download BrickBit Code**
 ```bash
 # On your Oracle Cloud server
-git clone https://github.com/Saumodunn/Brick-Hill.git
-cd Brick-Hill
+git clone https://github.com/ExpaInfo/BrickBitMain.git
+cd BrickBitMain
 ```
 
 ### **3.3 Run Automatic Deployment**
@@ -135,14 +135,14 @@ chmod +x oracle-deploy.sh
    Source: 0.0.0.0/0
    IP Protocol: TCP
    Destination Port Range: 80
-   Description: HTTP for Brick Hill
+   Description: HTTP for BrickBit
    ```
 4. **Add Ingress Rule** (for HTTPS later):
    ```
    Source: 0.0.0.0/0
    IP Protocol: TCP
    Destination Port Range: 443
-   Description: HTTPS for Brick Hill
+   Description: HTTPS for BrickBit
    ```
 
 ### **4.2 Ubuntu Firewall**
@@ -159,14 +159,14 @@ sudo ufw status
 ### **5.1 Test Your Site**
 Open in browser: `http://YOUR_PUBLIC_IP`
 
-You should see the Brick Hill homepage! 🎉
+You should see the BrickBit homepage! 🎉
 
 ### **5.2 Get a Free Domain (Optional)**
 
 **Option A: DuckDNS (Recommended)**
 1. Go to **https://www.duckdns.org/**
 2. Sign up with GitHub/Google
-3. Create subdomain: `yourbrickhill.duckdns.org`
+3. Create subdomain: `yourbrickbit.duckdns.org`
 4. Point to your Oracle Cloud IP
 
 **Option B: Freenom**
@@ -201,7 +201,7 @@ top
 sudo systemctl status nginx php8.1-fpm
 
 # Check logs
-tail -f /var/www/brickhill/storage/logs/laravel.log
+tail -f /var/www/brickbit/storage/logs/laravel.log
 sudo tail -f /var/log/nginx/error.log
 ```
 
@@ -213,7 +213,7 @@ sudo tail -f /var/log/nginx/error.log
 The deployment script sets up automatic weekly maintenance:
 ```bash
 # Manual maintenance
-/var/www/brickhill/oracle-maintenance.sh
+/var/www/brickbit/oracle-maintenance.sh
 ```
 
 ### **Updates**
@@ -243,11 +243,11 @@ sudo systemctl status nginx php8.1-fpm
 **🔍 Issue: 500 Internal Server Error**
 ```bash
 # Check Laravel logs
-tail -f /var/www/brickhill/storage/logs/laravel.log
+tail -f /var/www/brickbit/storage/logs/laravel.log
 
 # Check file permissions
-sudo chown -R www-data:www-data /var/www/brickhill
-sudo chmod -R 775 /var/www/brickhill/storage
+sudo chown -R www-data:www-data /var/www/brickbit
+sudo chmod -R 775 /var/www/brickbit/storage
 ```
 
 **🔍 Issue: Running out of space**
@@ -257,7 +257,7 @@ df -h
 
 # Clean up logs
 sudo find /var/log -type f -name "*.log" -mtime +7 -delete
-find /var/www/brickhill/storage/logs -name "*.log" -mtime +3 -delete
+find /var/www/brickbit/storage/logs -name "*.log" -mtime +3 -delete
 
 # Clean up package cache
 sudo apt autoremove
@@ -313,7 +313,7 @@ sudo certbot --nginx -d yourdomain.com
 - **Database**: 20GB Autonomous Database
 
 ### **What This Means**
-- ✅ **Your Brick Hill site**: Uses ~5GB storage, ~1TB bandwidth
+- ✅ **Your BrickBit site**: Uses ~5GB storage, ~1TB bandwidth
 - ✅ **Room for growth**: You could run 5-10 similar sites
 - ✅ **Never expires**: Unlike AWS/Google 12-month trials
 - ✅ **No surprise bills**: Free tier has hard limits, no overages
@@ -322,7 +322,7 @@ sudo certbot --nginx -d yourdomain.com
 
 ## 🎉 **Success! Your Site is Live**
 
-Your Brick Hill site is now:
+Your BrickBit site is now:
 - ✅ **Hosted FREE** on Oracle Cloud
 - ✅ **Accessible globally** via your public IP
 - ✅ **Optimized** for performance on free tier
@@ -352,10 +352,10 @@ curl http://YOUR_IP
 sudo systemctl restart nginx php8.1-fpm
 
 # View logs
-tail -f /var/www/brickhill/storage/logs/laravel.log
+tail -f /var/www/brickbit/storage/logs/laravel.log
 
 # Run maintenance
-/var/www/brickhill/oracle-maintenance.sh
+/var/www/brickbit/oracle-maintenance.sh
 ```
 
-🎯 **Your Brick Hill site is now running 100% FREE on Oracle Cloud!**
+🎯 **Your BrickBit site is now running 100% FREE on Oracle Cloud!**

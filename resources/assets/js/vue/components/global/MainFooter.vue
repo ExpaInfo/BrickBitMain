@@ -50,7 +50,7 @@
             <div class="footer-divider"></div>
             <p class="footer-copyright">
                 © {{ new Date().getFullYear() }} Mooshimity. All Rights Reserved
-                Brick Hill™ is a registered trademark of Mooshimity, Ltd.
+                BrickBit™ is a registered trademark of Mooshimity, Ltd.
             </p>
         </footer>
     </div>
@@ -61,6 +61,6 @@ import { computed } from "vue";
 import SvgSprite from "./SvgSprite.vue";
 
 const shouldFollowUs = computed<boolean>(
-    () => location.pathname === "/" && document.title === "Brick Hill"
+    () => location.pathname === "/" && document.title === "BrickBit"
 );
 </script>

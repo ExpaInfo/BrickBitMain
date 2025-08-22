@@ -9,4 +9,4 @@ Once you sign into your account, go into settings and press <b>Generate New Code
 Make sure to save the recovery codes in a safe place for next time.
 <br><br>
 Happy Hilling!<br>
-Brick Hill
+BrickBit

@@ -31,7 +31,7 @@ class NewLogin extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->subject('Brick Hill - New Login')
+            ->subject('BrickBit - New Login')
             ->view('mail.security.newlogin')->with([
                 'user' => $this->user,
                 'data' => $this->data
